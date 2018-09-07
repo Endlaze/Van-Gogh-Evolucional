@@ -1,5 +1,6 @@
 package geneticAlgorithm;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class Individual {
@@ -15,6 +16,18 @@ public class Individual {
             for (int col = 0; col < width; col++) {
                 Random rand = new Random();
                 genes[row][col] = rand.nextInt((255) + 1) ;
+            }
+        }
+    }
+    public void mutate(double percent) {
+        for (int row = 0; row < genes.length; row++) {
+            for (int col = 0; col < genes[row].length; col++) {
+                Random rand = new Random();
+                if (rand.nextDouble() <= percent) {
+                    rand = new Random();
+                    genes[row][col] = rand.nextInt((255) + 1) ;
+                }
+
             }
         }
     }
