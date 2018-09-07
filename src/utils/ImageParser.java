@@ -17,14 +17,12 @@ public class ImageParser {
 
         for(int y=0; y<height; y++) {
             for (int x = 0; x < width; x++) {
-                bufferedImage.setRGB(x, y, imageMatrix[y][x]);
+                Color newColor = new Color(imageMatrix[y][x], imageMatrix[y][x], imageMatrix[y][x]);
+                bufferedImage.setRGB(x,y,newColor.getRGB());
             }
         }
         return bufferedImage;
     }
-
-
-
 
     private int[][] imageToMatrix(BufferedImage image) {
 
