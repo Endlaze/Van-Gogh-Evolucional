@@ -8,6 +8,16 @@ public class Individual {
         fillArray(height, width);
     }
 
+    public int[][] getGenes(){
+
+        return this.genes;
+    }
+
+    public void setGenes(int [][] genes){
+        this.genes=genes;
+    }
+
+
     private void fillArray(int height, int width){
         genes = new int[height][width];
         for(int row=0;row<height;row++)
@@ -30,11 +40,5 @@ public class Individual {
         }
     }
 
-    public int[][] getGenes(){
-        return this.genes;
-    }
-    public void setGenes(int [][] genes){
-        this.genes=genes;
-    }
 
 }

@@ -1,6 +1,7 @@
 import fitness.fitness_ut.Test_Euclidean;
 import fitness.fitness_ut.Test_MSE;
 import geneticAlgorithm.Individual;
+import geneticAlgorithm.Population;
 import gui.ShowPictureGUI;
 import utils.ImageParser;
 
@@ -15,10 +16,15 @@ public class Main {
         //Tests
         Test_MSE.testMSE();
         Test_Euclidean.testMSE();
+        Population population = new Population(1000000, 5,5);
+
+
+        population.populationCrossover(100,100);
+
 
     }
     public void testComponents(){
-        Individual individual = new Individual(1024,1024);
+        Individual individual = new Individual(5,5);
         System.out.println(Arrays.deepToString(individual.getGenes()));
         ImageParser parser = new ImageParser();
 

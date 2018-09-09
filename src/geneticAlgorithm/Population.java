@@ -21,15 +21,19 @@ public class Population {
         }
     }
 
+    public void setIndividuals(ArrayList<Individual> individuals) {
+        this.individuals = individuals;
+    }
+
     public ArrayList<Individual> getIndividuals() {
         return individuals;
     }
 
-    public ArrayList<Individual> individualCrossover(int [][] individual1, int [][]individual2, double percent){
+
+    private ArrayList<Individual> individualCrossover(int [][] individual1, int [][]individual2, double percent){
+
         ArrayList<Individual> crossedIndividuals = new ArrayList<>();
-        int numberOfRowsToCross = (int) ((percent/100)*individual1.length);
-
-
+        int numberOfRowsToCross = (int) ((percent/100)*individual1.length)/2;
         for (int i=0; i<numberOfRowsToCross;i++){
             int random = new Random().nextInt(individual1.length);
             int [] temp = individual1[random];
@@ -44,4 +48,21 @@ public class Population {
 
         return crossedIndividuals;
     }
+
+    public void populationCrossover(float crossoverPercent, float crossedGenes){
+        ArrayList<Individual> nextGeneration = new ArrayList<>();
+        int numberOfCrossovers = (int) ((crossoverPercent/100)*this.getIndividuals().size())/2;
+        for(int i=0; i<numberOfCrossovers; i++){
+            Individual individual1 = this.getIndividuals().get(new Random().nextInt(this.getIndividuals().size()));
+            this.getIndividuals().remove(individual1);
+            Individual individual2 = this.getIndividuals().get(new Random().nextInt(this.getIndividuals().size()));
+            this.getIndividuals().remove(individual2);
+            nextGeneration.addAll(individualCrossover(individual1.getGenes(), individual2.getGenes(), crossedGenes));
+        }
+        this.getIndividuals().addAll(nextGeneration);
+    }
+
+
+
+
 }
