@@ -14,7 +14,7 @@ public class Population {
     private void initializePopulation(int populationSize){
 
         for(int i=0; i<populationSize; i++){
-            this.individuals.add(new Individual());
+            //this.individuals.add(new Individual());
         }
     }
 }
