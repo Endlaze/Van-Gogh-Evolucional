@@ -1,13 +1,13 @@
-package adaptability.adaptability_algorithms;
+package fitness.fitness_algorithms;
 
-import adaptability.adaptability_factory.IAdaptability;
+import fitness.fitness_factory.IFitness;
 
 /**
  *
  * @author diesv
  */
 
-public class Euclidean implements IAdaptability {
+public class Euclidean implements IFitness {
 
     @Override
     public float adaptabilityAlgorithm(int[][] p, int[][] q) {

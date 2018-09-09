@@ -1,5 +1,5 @@
-import adaptability.adaptability_ut.Test_Euclidean;
-import adaptability.adaptability_ut.Test_MSE;
+import fitness.fitness_ut.Test_Euclidean;
+import fitness.fitness_ut.Test_MSE;
 import geneticAlgorithm.Individual;
 import gui.ShowPictureGUI;
 import utils.ImageParser;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
 
         //Tests
         Test_MSE.testMSE();
@@ -19,10 +19,10 @@ public class Main {
     }
     public void testComponents(){
         Individual individual = new Individual(1024,1024);
-        System.out.println(Arrays.deepToString(individual.genes));
+        System.out.println(Arrays.deepToString(individual.getGenes()));
         ImageParser parser = new ImageParser();
 
-        BufferedImage bufferedImage = parser.matrixToImage(individual.genes);
+        BufferedImage bufferedImage = parser.matrixToImage(individual.getGenes());
 
         int [][] test = parser.imageToMatrix(bufferedImage);
         System.out.println(Arrays.deepToString(test));
