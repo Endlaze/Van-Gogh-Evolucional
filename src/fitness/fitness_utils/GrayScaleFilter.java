@@ -1,4 +1,4 @@
-package adaptability.adaptability_utils;
+package fitness.fitness_utils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

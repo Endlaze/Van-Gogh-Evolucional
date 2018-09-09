@@ -1,8 +1,8 @@
-package adaptability.adaptability_algorithms;
+package fitness.fitness_algorithms;
 
-import adaptability.adaptability_factory.IAdaptability;
+import fitness.fitness_factory.IFitness;
 
-public class MSE implements IAdaptability {
+public class MSE implements IFitness {
 
     @Override
     public float adaptabilityAlgorithm(int [][] p, int [][] q) {

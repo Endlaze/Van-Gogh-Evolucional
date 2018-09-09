@@ -1,10 +1,10 @@
-package adaptability.adaptability_ut;
+package fitness.fitness_ut;
 
-import adaptability.adaptability_algorithms.MSE;
+import fitness.fitness_algorithms.MSE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import adaptability.adaptability_factory.AdaptabilityFactory;
-import adaptability.adaptability_factory.IAdaptability;
+import fitness.fitness_factory.FitnessFactory;
+import fitness.fitness_factory.IFitness;
 import org.junit.jupiter.api.Test;
 
 public class Test_MSE {
@@ -15,7 +15,7 @@ public class Test_MSE {
         int array [][] = {{1, 2}, {3,4}};
         int array2 [][] = {{5, 6}, {7,8}};
 
-        IAdaptability mseAlgorithm = AdaptabilityFactory.getAdaptabilityAlgorithm("MSE");
+        IFitness mseAlgorithm = FitnessFactory.getAdaptabilityAlgorithm("MSE");
         assertEquals(16, mseAlgorithm.adaptabilityAlgorithm(array, array2), "MSE Test Failed");
     }
 }

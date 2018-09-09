@@ -1,10 +1,9 @@
 package geneticAlgorithm;
 
-import java.util.Arrays;
 import java.util.Random;
 
 public class Individual {
-    public  int [][] genes;
+    private int [][] genes;
     public Individual(int height, int width) {
         fillArray(height, width);
     }
@@ -27,9 +26,15 @@ public class Individual {
                     rand = new Random();
                     genes[row][col] = rand.nextInt((255) + 1) ;
                 }
-
             }
         }
+    }
+
+    public int[][] getGenes(){
+        return this.genes;
+    }
+    public void setGenes(int [][] genes){
+        this.genes=genes;
     }
 
 }

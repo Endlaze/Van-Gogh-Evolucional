@@ -1,12 +1,12 @@
-package adaptability.adaptability_factory;
+package fitness.fitness_factory;
 
 
-import adaptability.adaptability_algorithms.Euclidean;
-import adaptability.adaptability_algorithms.MSE;
+import fitness.fitness_algorithms.Euclidean;
+import fitness.fitness_algorithms.MSE;
 
-public class AdaptabilityFactory {
+public class FitnessFactory {
 
-    public static IAdaptability getAdaptabilityAlgorithm(String algorithm){
+    public static IFitness getAdaptabilityAlgorithm(String algorithm){
 
         switch (algorithm){
             case "EUCLIDEAN":
