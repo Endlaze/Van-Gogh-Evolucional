@@ -5,8 +5,6 @@ import java.util.Random;
 
 public class Population {
 
-
-
     private Individual [] individuals;
 
 
@@ -14,35 +12,40 @@ public class Population {
         initializePopulation(populationSize,height,width);
     }
 
+    //Function to init population
+
     private void initializePopulation(int populationSize, int height, int width){
-        individuals = new Individual[populationSize];
+        this.individuals = new Individual[populationSize];
         for(int i=0; i<populationSize; i++){
             Individual individual =new Individual(height, width);
             this.individuals[i] = (individual);
         }
     }
 
+    //Function to get individuals
+
     public Individual[] getIndividuals() {
         return individuals;
     }
 
-    public ArrayList<Individual> individualCrossover(int [][] individual1, int [][]individual2, double percent){
-        ArrayList<Individual> crossedIndividuals = new ArrayList<>();
-        int numberOfRowsToCross = (int) ((percent/100)*individual1.length);
+    // Function for individuals crossover
+
+    public void individualsCrossover(Individual individual1, Individual individual2, double percent){
+
+        int [][] indi1Genes = individual1.getGenes();
+        int [][] indi2Genes = individual2.getGenes();
+
+        int numberOfRowsToCross = (int) ((percent/100)*indi1Genes.length);
 
 
         for (int i=0; i<numberOfRowsToCross;i++){
-            int random = new Random().nextInt(individual1.length);
-            int [] temp = individual1[random];
-            individual1[random] =individual2[random];
-            individual2[random]=temp;
+            int random = new Random().nextInt(indi1Genes.length);
+            int [] temp = indi1Genes[random];
+            indi1Genes[random] =indi2Genes[random];
+            indi2Genes[random]=temp;
         }
 
-        crossedIndividuals.add(new Individual(individual1.length, individual1[0].length));
-        crossedIndividuals.add(new Individual(individual1.length, individual1[0].length));
-        crossedIndividuals.get(0).setGenes(individual1);
-        crossedIndividuals.get(1).setGenes(individual2);
-
-        return crossedIndividuals;
+        individual1.setGenes(indi1Genes);
+        individual2.setGenes(indi2Genes);
     }
 }
