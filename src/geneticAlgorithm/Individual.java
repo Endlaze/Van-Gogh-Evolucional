@@ -4,6 +4,8 @@ import java.util.Random;
 
 public class Individual {
     private int [][] genes;
+    public float   fitness;
+
     public Individual(int height, int width) {
         fillArray(height, width);
     }

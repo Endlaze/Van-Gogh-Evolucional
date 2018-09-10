@@ -7,14 +7,14 @@ import java.io.IOException;
 
 public class FileManager {
 
-    public static BufferedImage ReadImage(String path) throws IOException{
+    public  BufferedImage ReadImage(String path) throws IOException{
 
         BufferedImage img = null;
         img = ImageIO.read(new File(path));
         return img;
     }
 
-    public static void WriteImage(BufferedImage image, String path) throws IOException {
+    public  void WriteImage(BufferedImage image, String path) throws IOException {
         File file = new File(path);
         ImageIO.write(image, "jpg", file);
     }

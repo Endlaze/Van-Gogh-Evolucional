@@ -1,27 +1,28 @@
 package geneticAlgorithm;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class Population {
 
 
-    private ArrayList<Individual> individuals = new ArrayList<>();
+
+    private Individual [] individuals;
+
 
     public Population(int populationSize, int height, int width){
         initializePopulation(populationSize,height,width);
     }
 
     private void initializePopulation(int populationSize, int height, int width){
-
+        individuals = new Individual[populationSize];
         for(int i=0; i<populationSize; i++){
             Individual individual =new Individual(height, width);
-            this.individuals.add(individual);
+            this.individuals[i] = (individual);
         }
     }
 
-    public ArrayList<Individual> getIndividuals() {
+    public Individual[] getIndividuals() {
         return individuals;
     }
 
