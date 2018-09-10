@@ -15,9 +15,10 @@ public class Main {
         //Tests
         Test_MSE.testMSE();
         Test_Euclidean.testMSE();
+        //testComponents();
 
     }
-    public void testComponents(){
+    public static   void  testComponents(){
         Individual individual = new Individual(1024,1024);
         System.out.println(Arrays.deepToString(individual.getGenes()));
         ImageParser parser = new ImageParser();
@@ -28,6 +29,11 @@ public class Main {
         System.out.println(Arrays.deepToString(test));
 
         ShowPictureGUI gui = new ShowPictureGUI();
-        gui.ShowPicture(bufferedImage);
+        gui.showPicture(bufferedImage);
+        while(true){
+            individual = new Individual(1024,1024);
+            bufferedImage = parser.matrixToImage(individual.getGenes());
+            gui.updatePicture(bufferedImage);
+        }
     }
 }
