@@ -17,6 +17,9 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Main {
+    static int [][] originalMatrix;
+
+
 
     public static void main(String[] args) throws IOException {
 
@@ -31,14 +34,14 @@ public class Main {
         FileManager toLoad = new FileManager();
         BufferedImage image = null;
 
-        image = toLoad.ReadImage("mario.jpg");
+        image = toLoad.ReadImage("mona.jpg");
 
         GrayScaleFilter filter = new GrayScaleFilter();
         filter.applyGrayScaleFilter(image);
         ShowPictureGUI gui = new ShowPictureGUI();
         gui.showPicture(image);
         ImageParser parser = new ImageParser();
-        int [][] originalMatrix = parser.imageToMatrix(image);
+        originalMatrix = parser.imageToMatrix(image);
         String algorithm = "MSE";
         IFitness mseAlgorithm = FitnessFactory.getAdaptabilityAlgorithm(algorithm);
         Population population = new Population(100,100,100);
@@ -100,8 +103,10 @@ public class Main {
             for (int col = 0; col < 100; col++) {
                 Random rand = new Random();
                 if (rand.nextDouble() <= percent) {
-                    rand = new Random();
-                    subject[row][col] = rand.nextInt((255) + 1) ;
+
+                    int gene = -1*(originalMatrix[row][col]-subject[row][col]) ;
+
+                    subject[row][col] = subject[row][col] +new Random(gene).nextInt() ;
                 }
             }
         }
@@ -123,7 +128,6 @@ public class Main {
                 temp2 = genes1[i][rand];
                 genes1[i][rand] = genes2[i][rand];
                 genes2[i][rand]= temp2;
-
             }
         }
         return genes1;
