@@ -1,11 +1,15 @@
 package utils;
 
+import geneticAlgorithm.Individual;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 
 
 public class ImageParser {
@@ -39,6 +43,13 @@ public class ImageParser {
         }
         return result;
 
+    }
+
+    public Individual[] revIndividuals(Individual [] individuals)
+    {
+        Arrays.sort(individuals, new Sort());
+        for(int i=0; i<individuals.length/2; i++){ Individual temp = individuals[i]; individuals[i] = individuals[individuals.length -i -1]; individuals[individuals.length -i -1] = temp; }
+    return individuals;
     }
 
 }

@@ -15,8 +15,8 @@ public class Test_Euclidean {
         int array [][] = {{1, 2}, {3,4}};
         int array2 [][] = {{5, 6}, {7,8}};
 
-        IFitness euclidean = FitnessFactory.getAdaptabilityAlgorithm("EUCLIDEAN");
+        IFitness euclidean = FitnessFactory.getFitnessAlgorithm("EUCLIDEAN");
 
-        assertEquals(8, euclidean.adaptabilityAlgorithm(array, array2), "Euclidean Test Failed");
+        assertEquals(8, euclidean.fitnessAlgorithm(array, array2), "Euclidean Test Failed");
     }
 }

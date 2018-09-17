@@ -10,7 +10,7 @@ import fitness.fitness_factory.IFitness;
 public class Euclidean implements IFitness {
 
     @Override
-    public float adaptabilityAlgorithm(int[][] p, int[][] q) {
+    public float fitnessAlgorithm(int[][] p, int[][] q) {
         float sum = 0;
         int m = p.length;
         int n = p[0].length;

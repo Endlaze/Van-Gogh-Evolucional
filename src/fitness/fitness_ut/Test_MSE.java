@@ -15,7 +15,7 @@ public class Test_MSE {
         int array [][] = {{1, 2}, {3,4}};
         int array2 [][] = {{5, 6}, {7,8}};
 
-        IFitness mseAlgorithm = FitnessFactory.getAdaptabilityAlgorithm("MSE");
-        assertEquals(16, mseAlgorithm.adaptabilityAlgorithm(array, array2), "MSE Test Failed");
+        IFitness mseAlgorithm = FitnessFactory.getFitnessAlgorithm("MSE");
+        assertEquals(16, mseAlgorithm.fitnessAlgorithm(array, array2), "MSE Test Failed");
     }
 }

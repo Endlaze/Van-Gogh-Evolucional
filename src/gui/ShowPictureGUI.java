@@ -8,7 +8,7 @@ import java.awt.image.BufferedImage;
 
 public class ShowPictureGUI {
 
-     JLabel label;
+    JLabel label;
     JFrame frame;
     ImageIcon icon;
 
@@ -26,5 +26,7 @@ public class ShowPictureGUI {
         icon.getImage().flush();
         icon = new ImageIcon(image);
         label.setIcon( icon );
+
+
     }
 }

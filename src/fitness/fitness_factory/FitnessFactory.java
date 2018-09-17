@@ -6,7 +6,8 @@ import fitness.fitness_algorithms.MSE;
 
 public class FitnessFactory {
 
-    public static IFitness getAdaptabilityAlgorithm(String algorithm){
+    public static IFitness getFitnessAlgorithm(String algorithm){
+        algorithm.toUpperCase();
 
         switch (algorithm){
             case "EUCLIDEAN":

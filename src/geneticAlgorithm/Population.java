@@ -1,18 +1,17 @@
 package geneticAlgorithm;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Population {
 
-    private Individual [] individuals;
+   public Individual [] individuals;
 
 
     public Population(int populationSize, int height, int width){
         initializePopulation(populationSize,height,width);
     }
 
-    //Function to init population
+    //Function to initialize population
 
     private void initializePopulation(int populationSize, int height, int width){
         this.individuals = new Individual[populationSize];
@@ -30,22 +29,29 @@ public class Population {
 
     // Function for individuals crossover
 
-    public void individualsCrossover(Individual individual1, Individual individual2, double percent){
+    public int[][] crossover(int [][] genes1, int [][] genes2, double percent){
+        Random random = new Random();
 
-        int [][] indi1Genes = individual1.getGenes();
-        int [][] indi2Genes = individual2.getGenes();
-
-        int numberOfRowsToCross = (int) ((percent/100)*indi1Genes.length);
-
-
-        for (int i=0; i<numberOfRowsToCross;i++){
-            int random = new Random().nextInt(indi1Genes.length);
-            int [] temp = indi1Genes[random];
-            indi1Genes[random] =indi2Genes[random];
-            indi2Genes[random]=temp;
+        int [] temp;
+        for (int i = 0; i < genes1.length; i++){
+            if (random.nextDouble() <= percent){
+                temp = genes1[i];
+                genes1[i] = genes2[i];
+                genes2[i]= temp;
+            }
+            if (random.nextDouble()<=percent){
+                int rand = new Random().nextInt(genes1.length);
+                int temp2;
+                temp2 = genes1[i][rand];
+                genes1[i][rand] = genes2[i][rand];
+                genes2[i][rand]= temp2;
+            }
         }
-
-        individual1.setGenes(indi1Genes);
-        individual2.setGenes(indi2Genes);
+        return genes1;
     }
+
+
+
+
+
 }

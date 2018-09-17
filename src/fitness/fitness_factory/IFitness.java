@@ -2,6 +2,6 @@ package fitness.fitness_factory;
 
 public interface IFitness {
 
-    float adaptabilityAlgorithm(int [][] p, int [][] q);
+    float fitnessAlgorithm(int [][] p, int [][] q);
 
 }
