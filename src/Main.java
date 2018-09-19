@@ -66,12 +66,11 @@ public class Main {
         RefineryUtilities.centerFrameOnScreen(demo);
         demo.setVisible(true);
         long start = System.currentTimeMillis();
-        double worstPercent = Math.abs(0.25-0.100);
+        double worstPercent = Math.abs(40-100);
+        worstPercent = worstPercent/100.0;
 
         GeneticAlgorithm genetics = new GeneticAlgorithm();
         genetics.geneticAlgorithmDemo(geneticGUI,demo,start, metaImage, geneticGUI.getPopulationSize(), geneticGUI.getGenerations(), geneticGUI.getMutationPercent(), geneticGUI.getCrossoverPercent(),worstPercent, fitnessAlgorithm);
 
     }
-
-
 }

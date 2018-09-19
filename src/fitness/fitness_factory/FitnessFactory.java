@@ -2,6 +2,7 @@ package fitness.fitness_factory;
 
 
 import fitness.fitness_algorithms.Euclidean;
+import fitness.fitness_algorithms.JDJD;
 import fitness.fitness_algorithms.MSE;
 
 public class FitnessFactory {
@@ -14,8 +15,8 @@ public class FitnessFactory {
                 return new Euclidean();
             case "MSE":
                 return new MSE();
-            case "OUR_ALGORITHM":
-                return null;
+            case "OUR ALGORITHM":
+                return new JDJD();
             default:
 
         }

@@ -19,8 +19,8 @@ public class XYSeriesDemo extends ApplicationFrame {
         final XYSeriesCollection data = new XYSeriesCollection(series);
         final JFreeChart chart = ChartFactory.createXYLineChart(
                 "Genetic Graph",
-                "X",
-                "Y",
+                "Generations",
+                "Fitness",
                 data,
                 PlotOrientation.VERTICAL,
                 true,

@@ -28,13 +28,13 @@ public class GeneticAlgorithm {
        for(int generationsCount = 0; generationsCount <generations; generationsCount++){
 
            generationCrossover(population, 1,populationSize/2,crossoverPercent);
-           geneticsMutation(population, (int) (populationSize*0.6),populationSize/2,mutationPercent);
+           geneticsMutation(population, (int) ((populationSize/2)*0.6),populationSize/2,mutationPercent);
            generateNewIndividuals(population, populationSize/2, (int) (populationSize*worstPercent));
 
 
            float elapsedTimeSec = (System.currentTimeMillis() - start)/1000F;
            gui.setFittestImageLabel(imageParser.matrixToImage(population.getIndividuals()[0].getGenes()));
-           demo.series.add(elapsedTimeSec,population.getIndividuals()[0].fitness);
+           demo.series.add(generationsCount,population.getIndividuals()[0].fitness);
 
            calculateGenerationFitness(population, fitnessAlgorithm, metaImageGenes);
            Arrays.sort(population.getIndividuals(), new Sort());
@@ -45,6 +45,7 @@ public class GeneticAlgorithm {
                individualCounter++;
            }
        }
+       finalIndividuals[9]= population.getIndividuals()[0];
        finalIndividuals = imageParser.revIndividuals(finalIndividuals);
        finalImage(finalIndividuals);
     }
